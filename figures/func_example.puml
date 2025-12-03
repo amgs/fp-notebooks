@@ -1,0 +1,16 @@
+@startuml func_example
+!define LIGHTBLUE
+!includeurl https://gist.githubusercontent.com/amgs/de57560012a8a5f0e4240f392b678a40/raw/b736d37d651e0bd922d9c625a249556676dad29c/style.puml
+create g1 as "void g1(int a, Func<int,int>t)"
+rnote over g1
+""a <- 3""
+""t <- f1""
+endrnote
+create f1 as "int f1(int a)"
+g1 -> f1 : ""int r = t(a)""
+rnote over f1
+""a <- 3""
+endrnote
+f1 --> g1 : ""r <- a + 2 = 5""
+g1 -> g1 : ""Console.WriteLine(r)""
+@enduml

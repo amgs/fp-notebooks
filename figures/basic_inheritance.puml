@@ -1,0 +1,29 @@
+@startuml basic_inheritance
+!define LIGHTBLUE
+!includeurl https://gist.githubusercontent.com/amgs/de57560012a8a5f0e4240f392b678a40/raw/b736d37d651e0bd922d9c625a249556676dad29c/style.puml
+
+top to bottom direction
+
+abstract class Object {
+    +Object()
+    ~Object()
+    +string ToString()
+    +bool Equals(object obj)
+    +int GetHashCode()
+}
+
+class Pessoa {
+    +Pessoa(string Nome, int Idade)
+    +{method} string Nome {get}
+    +{method} int Idade {get}
+    +string ToString()
+}
+
+Object <|-- Pessoa
+
+note right of Pessoa::ToString
+Esta implementação do método vai-se
+sobrepor à herdada de ""Object"" 
+end note
+
+@enduml

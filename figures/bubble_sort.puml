@@ -1,0 +1,34 @@
+@startuml bubble_sort
+!define LIGHTBLUE
+!includeurl https://gist.githubusercontent.com/amgs/de57560012a8a5f0e4240f392b678a40/raw/b736d37d651e0bd922d9c625a249556676dad29c/style.puml
+
+start
+:Array de tamanho n;<<procedure>>
+floating note right
+    O ciclo exterior é iniciado tantas
+    vezes quantos o número de elementos no array.
+end note
+partition "Ciclo exterior" {
+    repeat :Obtém o primeiro elemento (A);
+    partition "Ciclo interior" {
+        note right
+            Por cada elemento obtido pelo ciclo exterior,
+            o ciclo interior é executado, e percorre todos os elementos do array.
+        end note
+        repeat :Obtém o elemento seguinte (B);
+        :Compara elementos;
+        if(A > B) then (Sim)
+            :Troca a posição de A e B;
+        else (Não)
+        endif
+        :A = B;
+        repeat while (Existem mais elementos no array?) is (Sim) not (Não)
+    }
+    repeat while (Percorreu n vezes?) is (Não) not (Sim)
+}
+stop
+floating note right
+No final de cada iteração do ciclo exterior, temos a garantia de que
+pelo menos um elemento ficou corretamente ordenado.
+end note
+@enduml
